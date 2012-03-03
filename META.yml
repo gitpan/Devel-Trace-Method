@@ -18,4 +18,7 @@ no_index:
     - t
     - inc
 requires: {}
-version: 0.07
+resources:
+  bugtracker: https://bitbucket.org/spek/devel-trace-method/issues
+  repository: https://bitbucket.org/spek/devel-trace-method
+version: 0.08

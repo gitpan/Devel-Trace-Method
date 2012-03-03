@@ -3,7 +3,7 @@ package Devel::Trace::Method;
 use strict;
 use warnings;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 use Exporter 'import';
 
@@ -75,8 +75,9 @@ sub _fetch_functions { return @fetch_functions; }
             my $self = shift;
 
             return @stack if @_;
+           
+            my $caller = (caller(3))[3] || 0; 
             
-            my $caller = (caller(3))[3] ? (caller(3))[3] : 0;
             push @stack, {
                     caller   => $caller,
                     package  => (caller(1))[0],
@@ -286,13 +287,18 @@ way.
 
 
 =head1 AUTHOR
+
 Steve Bertrand, E<lt>steveb@cpan.orgE<gt>
 
 
 
-=head1 COPYRIGHT AND LICENSE
+=head1 COPYRIGHT
 
 Copyright (C) 2012 by Steve Bertrand
+
+
+
+=head1 LICENSE
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.12.4 or,
