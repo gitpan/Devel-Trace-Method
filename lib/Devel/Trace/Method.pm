@@ -3,7 +3,7 @@ package Devel::Trace::Method;
 use strict;
 use warnings;
 
-our $VERSION = '0.04';
+our $VERSION = '0.05';
 
 use Exporter 'import';
 
@@ -120,6 +120,8 @@ sub track_method {
     for my $track_function ( @track_functions ){
         $self->{ DTM_functions }{ track }{ $track_function }();
     }
+
+    return 0;
 }
 
 sub fetch_trace {
@@ -232,12 +234,12 @@ that contains an array reference for all the above types.
 
 =head1 EXAMPLES
 
-# print the stack trace
+    # print the stack trace
 
-my @stack = fetch_trace( $obj, 'stacktrace' );
-print Dumper \@stack;
+    my @stack = fetch_trace( $obj, 'stacktrace' );
+    print Dumper \@stack;
 
-$VAR1 = [
+    $VAR1 = [
           {
             'sub' => 'Dude::say_hi',
             'filename' => './dude.pl',
@@ -254,11 +256,11 @@ $VAR1 = [
           }
         ];
 
-# print the code flow
-my @codeflow = fetch_trace( $obj, 'codeflow' );
-print Dumper \@codeflow;
+    # print the code flow
+    my @codeflow = fetch_trace( $obj, 'codeflow' );
+    print Dumper \@codeflow;
 
-$VAR1 = [
+    $VAR1 = [
           '0 => Dude::say_hi',
           '1 => Dude::say_bye'
         ];
