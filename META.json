@@ -1,5 +1,5 @@
 {
-   "abstract" : "Track how your object methods interact",
+   "abstract" : "Follow the flow of your object's method calls ",
    "author" : [
       "Steve Bertrand <steve@cpan.org>"
    ],
@@ -35,5 +35,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.05"
+   "version" : "0.06"
 }
